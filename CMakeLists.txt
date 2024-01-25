@@ -1,11 +1,28 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(udp_mutiplex_server VERSION 0.1.0 LANGUAGES C)
 
-include(CTest)
-enable_testing()
+# ###########################################################
+# Create a library
+# ###########################################################
 
-add_executable(udp_mutiplex_server main.c)
+# Generate the static library from the library sources
+add_library(socket_utils STATIC
+    lib/socket_utils/socket_utils.c
+)
 
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+target_include_directories(${PROJECT_NAME}
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/inc
+)
+
+# set sources
+set(SOURCES
+    src/main.c
+    src/udp_web_server.c)
+
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+target_link_libraries(${PROJECT_NAME}
+    PRIVATE
+    socket_utils
+)
