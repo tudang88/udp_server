@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/tudang/work/network_programing/prjs/udp_server/build",
+  "command": "/usr/bin/gcc -g -o CMakeFiles/udp_mutiplex_server.dir/main.c.o -c /home/tudang/work/network_programing/prjs/udp_server/main.c",
+  "file": "/home/tudang/work/network_programing/prjs/udp_server/main.c"
+}
+]
