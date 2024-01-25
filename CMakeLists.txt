@@ -14,6 +14,9 @@ target_include_directories(socket_utils
     ${PROJECT_SOURCE_DIR}/inc
 )
 
+# ###########################################################
+# Create a executable
+# ###########################################################
 # set sources
 set(SOURCES
     src/main.c
