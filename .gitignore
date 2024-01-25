@@ -1,0 +1,7 @@
+*.code-workspace
+src/output
+main
+build/.cmake
+build/CMakeFiles
+build/cmake_install.cmake
+build/CMakeCache.txt
