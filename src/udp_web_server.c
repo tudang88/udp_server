@@ -35,7 +35,7 @@ void setup_udp_server_communication()
     }
 
     // set master socket to allow multiple connections
-    if (setsockopt(master_sock_udp_fd, SOL_SOCKET, SO_REUSEADDR, (char *)&opt) < 0)
+    if (setsockopt(master_sock_udp_fd, SOL_SOCKET, SO_REUSEADDR, (char *)&opt, sizeof(opt)) < 0)
     {
         printf("UDP socket creation failed for multiple connections\n");
         exit(1);

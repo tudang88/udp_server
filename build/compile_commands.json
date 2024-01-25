@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/Users/dangtu/mywork/12_socket/web_server/udp_server/build",
+  "command": "/opt/homebrew/bin/aarch64-apple-darwin23-gcc-13  -I/Users/dangtu/mywork/12_socket/web_server/udp_server/inc -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -o CMakeFiles/socket_utils.dir/lib/socket_utils/socket_utils.c.o -c /Users/dangtu/mywork/12_socket/web_server/udp_server/lib/socket_utils/socket_utils.c",
+  "file": "/Users/dangtu/mywork/12_socket/web_server/udp_server/lib/socket_utils/socket_utils.c",
+  "output": "CMakeFiles/socket_utils.dir/lib/socket_utils/socket_utils.c.o"
+},
+{
+  "directory": "/Users/dangtu/mywork/12_socket/web_server/udp_server/build",
+  "command": "/opt/homebrew/bin/aarch64-apple-darwin23-gcc-13  -I/Users/dangtu/mywork/12_socket/web_server/udp_server/inc -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -o CMakeFiles/udp_mutiplex_server.dir/src/main.c.o -c /Users/dangtu/mywork/12_socket/web_server/udp_server/src/main.c",
+  "file": "/Users/dangtu/mywork/12_socket/web_server/udp_server/src/main.c",
+  "output": "CMakeFiles/udp_mutiplex_server.dir/src/main.c.o"
+},
+{
+  "directory": "/Users/dangtu/mywork/12_socket/web_server/udp_server/build",
+  "command": "/opt/homebrew/bin/aarch64-apple-darwin23-gcc-13  -I/Users/dangtu/mywork/12_socket/web_server/udp_server/inc -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -o CMakeFiles/udp_mutiplex_server.dir/src/udp_web_server.c.o -c /Users/dangtu/mywork/12_socket/web_server/udp_server/src/udp_web_server.c",
+  "file": "/Users/dangtu/mywork/12_socket/web_server/udp_server/src/udp_web_server.c",
+  "output": "CMakeFiles/udp_mutiplex_server.dir/src/udp_web_server.c.o"
+}
+]

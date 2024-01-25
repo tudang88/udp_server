@@ -1,0 +1,4 @@
+/Users/dangtu/mywork/12_socket/web_server/udp_server/build/CMakeFiles/socket_utils.dir
+/Users/dangtu/mywork/12_socket/web_server/udp_server/build/CMakeFiles/udp_mutiplex_server.dir
+/Users/dangtu/mywork/12_socket/web_server/udp_server/build/CMakeFiles/edit_cache.dir
+/Users/dangtu/mywork/12_socket/web_server/udp_server/build/CMakeFiles/rebuild_cache.dir
