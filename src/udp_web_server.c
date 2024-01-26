@@ -2,6 +2,9 @@
 #include "udp_web_server.h"
 #include "socket_utils.h"
 
+/**
+ *  initialize the monitor fd_set 
+ * */
 void
 intitiaze_monitor_fd_set(int* monitor_fds)
 {
@@ -11,6 +14,9 @@ intitiaze_monitor_fd_set(int* monitor_fds)
         *(monitor_fds + i) = -1;
 }
 
+/**
+ *  insert socket FD to monitor set 
+ * */
 void 
 add_to_monitored_fd_set(int* monitor_fds, int skt_fd)
 {
@@ -25,6 +31,9 @@ add_to_monitored_fd_set(int* monitor_fds, int skt_fd)
     }
 }
 
+/**
+ *  remove socket FD from monitor set 
+ * */
 void
 remove_from_monitored_fd_set(int* monitor_fds, int skt_fd){
 
@@ -39,6 +48,9 @@ remove_from_monitored_fd_set(int* monitor_fds, int skt_fd){
     }
 }
 
+/**
+ *  re-init the readfds before invoking select() 
+ * */
 void
 re_init_readfds(int* monitor_fds, fd_set *fd_set_ptr){
 
@@ -51,6 +63,9 @@ re_init_readfds(int* monitor_fds, fd_set *fd_set_ptr){
     }
 }
 
+/**
+ *  get the max FD in monitor set 
+ * */
 int 
 get_max_fd(int* monitor_fds){
 
