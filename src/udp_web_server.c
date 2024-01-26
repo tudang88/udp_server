@@ -1,6 +1,70 @@
 #include <stdio.h>
 #include "udp_web_server.h"
 #include "socket_utils.h"
+
+void
+intitiaze_monitor_fd_set(int* monitor_fds)
+{
+
+    int i = 0;
+    for(; i < MAX_CLIENT_SUPPORTED; i++)
+        *(monitor_fds + i) = -1;
+}
+
+void 
+add_to_monitored_fd_set(int* monitor_fds, int skt_fd)
+{
+
+    int i = 0;
+    for(; i < MAX_CLIENT_SUPPORTED; i++){
+
+        if(*(monitor_fds + i) != -1)
+            continue;   
+        *(monitor_fds + i) = skt_fd;
+        break;
+    }
+}
+
+void
+remove_from_monitored_fd_set(int* monitor_fds, int skt_fd){
+
+    int i = 0;
+    for(; i < MAX_CLIENT_SUPPORTED; i++){
+
+        if(*(monitor_fds + i) != skt_fd)
+            continue;
+
+        *(monitor_fds + i) = -1;
+        break;
+    }
+}
+
+void
+re_init_readfds(int* monitor_fds, fd_set *fd_set_ptr){
+
+    FD_ZERO(fd_set_ptr);
+    int i = 0;
+    for(; i < MAX_CLIENT_SUPPORTED; i++){
+        if(*(monitor_fds + i) != -1){
+            FD_SET(*(monitor_fds + i), fd_set_ptr);
+        }
+    }
+}
+
+int 
+get_max_fd(int* monitor_fds){
+
+    int i = 0;
+    int max = -1;
+
+    for(; i < MAX_CLIENT_SUPPORTED; i++){
+        if(*(monitor_fds + i) > max)
+            max = *(monitor_fds + i);
+    }
+
+    return max;
+}
+
 /**
  * setup and handle connection
  */
@@ -28,7 +92,7 @@ void setup_udp_server_communication()
     /**
      * master socket creation
      */
-    if (master_sock_udp_fd = socket(AF_INET, SOCK_DGRAM, 0) == -1)
+    if (master_sock_udp_fd = createUDPIpv4Socket() == -1)
     {
         printf("socket creation failed\n");
         exit(1);
@@ -46,6 +110,15 @@ void setup_udp_server_communication()
      */
     server_addr = createIPv4Address("", SERVER_PORT);
     addr_len = sizeof(struct sockaddr);
+
+    /**
+     * bind the server
+     */
+    if (bind(master_sock_udp_fd, (struct sockaddr *) server_addr, sizeof(struct sockaddr)) == -1) {
+        printf("socket bind failed\n");
+        exit(1);
+    }
+
 }
 
 /**
